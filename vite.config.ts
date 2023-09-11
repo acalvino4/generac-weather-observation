@@ -1,6 +1,4 @@
-// eslint-disable-next-line n/file-extension-in-import
 import {sveltekit} from '@sveltejs/kit/vite';
-// eslint-disable-next-line n/file-extension-in-import
 import {defineConfig} from 'vitest/config';
 import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';

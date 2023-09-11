@@ -7,6 +7,9 @@ const config = {
 	theme: {
 		extend: {},
 	},
+	daisyui: {
+		themes: ['luxury'],
+	},
 
 	plugins: [daisyui],
 } satisfies Config;

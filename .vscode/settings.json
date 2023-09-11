@@ -14,6 +14,9 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "samverschueren.linter-xo"
   },
+  "[svelte]": {
+    "editor.defaultFormatter": "samverschueren.linter-xo"
+  },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   }
