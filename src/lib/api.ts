@@ -91,6 +91,10 @@ export async function getStationUrl(location: Location): Promise<string> {
 		throw new TooManyRequestsError();
 	}
 
+	if (response.status === 404) {
+		return '';
+	}
+
 	try {
 		const {
 			properties: {observationStations},
@@ -171,6 +175,7 @@ export async function getStationByAddress(
 	const coordinates = await getAddressCoordinates(address);
 	if (!coordinates) return;
 	const stationUrl = await getStationUrl(coordinates);
+	if (!stationUrl) return;
 	const station = await getNearestStation(stationUrl);
 	return station;
 }

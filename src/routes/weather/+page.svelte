@@ -32,7 +32,7 @@
 	<Loading />
 {:then station}
 	{#if !station}
-		<p class="my-8">Sorry, no weather station was found for your suggested location! Try selecting another place.</p>
+		<p class="p-8">Sorry, no weather station was found for your selected location (only US locations are supported)! Try selecting another place.</p>
 	{:else}
 		<h3 class="text-base-300">Gathering weather data from Station at <span class="font-bold">{station.name}</span></h3>
 

@@ -11,7 +11,6 @@ export async function getWeatherByStation(
 	station: Station,
 ): Promise<DayOfWeather[]> {
 	const observations = await getObservations(station);
-	console.log(observations);
 	const weatherByDay = getFormattedObservations(observations, station.timezone);
 	return weatherByDay;
 }

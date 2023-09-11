@@ -1,6 +1,6 @@
 # Generac Weather Observation Analysis Take-Home Project
 
-I completed this assesment with SvelteKit. The majority of the relevant code files are in `src/routes` and `src/lib`. I chose SvelteKit because it is a framework I've been wanting to learn, but didn't know what to build with it.
+I completed this assesment with SvelteKit. The majority of the relevant code files are in `src/routes` and `src/lib`. I chose SvelteKit because it is a framework I've been wanting to learn, but didn't know what to build with it. This gave me the "what"!
 
 Since it's a relatively new and unknown framework, a few words of explanation:
 
@@ -12,6 +12,10 @@ Since it's a relatively new and unknown framework, a few words of explanation:
 I used the arcgis api for the auto-suggest that narrows down the choices, and retrieves the coordinates of an address. The weather service api did not seem to have this functionality; in fact, the widget on the NWS site uses the arcgis api for this purpose, which is what pointed me in that direction. If solely using the weather api, we would not be able to search by address, but only by latitude and longtitude coordinates.
 
 The arcgis api requires an api key. To run locally, enter it in `.env` as `PUBLIC_ARCGIS_API_KEY=<api_key>`.
+
+Check out the [Live Demo](https://generac-weather-observation.pages.dev/)! (hosted at Cloudflare pages)
+
+OR run locally with following instructions.
 
 ## Dependencies
 
