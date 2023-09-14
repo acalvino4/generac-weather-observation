@@ -11,12 +11,16 @@
   import Loading from '$lib/components/loading.svelte';
 	import Card from '$lib/components/card.svelte';
 	import type {Station} from '$lib/types';
+	import {temperatureScale} from '$lib/store';
 
 	let address: string | undefined;
 	let station: Station | undefined;
 	$: stationPromise = getStationByAddress(address);
 	$: stationPromise.then((result: Station|undefined) => {station = result})
 	$: weatherDataPromise = station ? getWeatherByStation(station) : null;
+
+	let scaleTypeCheckbox: boolean = false;
+	$: $temperatureScale = scaleTypeCheckbox ? 'F' : 'C';
 
 	onMount(async () => {
 		address = $page.url.searchParams.get('address') ?? '';
@@ -26,8 +30,15 @@
 	});
 </script>
 
-<h2 class="text-xl">Weather for <span class="font-bold">{address}</span></h2>
-<a href="/" class="underline">Change location</a>
+<div class="text-center relative">
+	<div class="absolute -right-32 text-xl">
+		&deg;C <input type="checkbox" bind:checked={scaleTypeCheckbox} class="toggle border-opacity-100 bg-opacity-100 relative top-1" /> &deg;F
+	</div>
+
+	<h2 class="text-xl">Weather for <span class="font-bold">{address}</span></h2>
+	<a href="/" class="underline">Change location</a>
+</div>
+
 {#await stationPromise}
 	<Loading />
 {:then station}

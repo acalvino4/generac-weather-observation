@@ -1,4 +1,5 @@
 import {DateTime} from 'luxon';
+import type {TemperatureScale} from '$lib/store';
 import type {Observation, DayOfWeather, Station} from '$lib/types';
 import {getObservations} from '$lib/api';
 
@@ -54,4 +55,13 @@ export function getFormattedObservations(
 	}
 
 	return sortedWeather;
+}
+
+export function localizeTemperature(
+	temperature: number | undefined,
+	temperatureScale: TemperatureScale,
+): number | undefined {
+	if (!temperature) return;
+	if (temperatureScale === 'C') return temperature;
+	return Math.round(18 * temperature) / 10 + 32;
 }
